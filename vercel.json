@@ -1,5 +1,6 @@
 {
-  "github": {
-    "silent": true
-  }
+  "routes": [
+    { "src": "/ping", "dest": "/api/ping.go" },
+    { "src": "/v1/.*", "dest": "/api/handler.go" }
+  ]
 }
