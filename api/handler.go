@@ -13,13 +13,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	proxy := httputil.NewSingleHostReverseProxy(u)
 	proxy.ServeHTTP(w, r)
 
-	fmt.Printf(`
-u: [` + u.Path + `]
-req.URL.RawPath:[` + r.URL.RawPath + `],
-req.URL.RawQuery:[` + r.URL.RawQuery + `],
-req.URL.Path:[` + r.URL.Path + `],
-resp.header:[` + getHeaders(w) + `],
-	`)
+	fmt.Printf("%+v\n", r)
+	fmt.Printf("%+v\n", w)
 }
 
 func getHeaders(w http.ResponseWriter) string {
